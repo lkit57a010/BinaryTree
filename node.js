@@ -5,13 +5,14 @@ function Node(val){
 }
 Node.prototype.search = function(val){
     if(this.value == val){
+        return this;
         console.log("Found it "+val);
     }else if(val < this.value && this.left != null){
-        this.left.search(val);
+       return this.left.search(val);
     }else if(val > this.value && this.right != null){
-        this.right.search(val);
+        return this.right.search(val);
     }
-    
+    return null;
 }
 Node.prototype.visit = function(){
     if(this.left != null){
